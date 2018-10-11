@@ -7,7 +7,7 @@ This is a SPA where users can view documents that were created and uploaded by u
 ## User Stories
 
 -  **404:** As an anon/user I want to see a 404 page if I try to reach a page that does not exist so that I know it's my fault.
-- **500:**
+- **Homepage:** As a user I want to be able to see the login and signup page depending on my role.
 -  **Signup:** As a user I want to sign up to the platform so I can upload documents and create users.
 -  **Login:** As a user/admin I want to log in to the platform so I can see my documents.
 -  **Logout:** As a user I want to logout from the platform so no one else can see my documents.
@@ -51,9 +51,8 @@ Notifications:
 
 ## Routes
 
-- / - Homepage (public)
-- /login - login form (anon)
-- /signup - signup form (admin)
+- / - Homepage (anon)
+- ** notfound - notfound page (public)
 - /user/create - show user create form (admin)
 - /dashboard - users list (admin)
 - /user/:id - user document list (admin)
@@ -66,17 +65,16 @@ Notifications:
 ## Pages
 
 - Homepage
-- Log in page
-- Sign up page
 - Dashboard page
 - User create form page
 - User profile page
 - Document detail page
 - 404 Page
-- 500 Page
 
 ## Components
 
+- Login component
+- Signup component
 - User Card component
   - Input: user: any
   - Shows user name, number of documents.
@@ -101,6 +99,13 @@ Notifications:
   - user.list()
   - user.create(data)
   - user.profile(id)
+
+## Guards
+
+- initAuth - always authorize
+- requireAnon - only authorize if !user, redirect to / otherwise
+- requireUser - only authorize if user && user.role === 'user', redirect to / otherwise
+- requireAdmin - only authorize if user && user.role === 'admin', redirect to / otherwise  
 
 # Server
 
@@ -142,13 +147,12 @@ type - String [enum: 'contract', 'proposal', 'presentation', 'survey']
   - body:
     - username
     - password
-- POST /user/create
+- POST /user
  - requires admin
  - body:
     - username
     - password
-    - admin id
-    - created on
+  - validate user is unique (409)
   - create user
   - returns user
 - GET /user
@@ -190,7 +194,6 @@ POST /user/:id/document/create
   - body: (empty)
 
 
-
 ## Links
 
 ### Trello/Kanban
@@ -201,8 +204,8 @@ POST /user/:id/document/create
 
 The url to your repository and to your deployed project
 
-[Client repository Link](http://github.com)
-[Server repository Link](http://github.com)
+[Client repository Link](https://github.com/barkrrr/uploadly-client)
+[Server repository Link](https://github.com/barkrrr/uploadly-server)
 
 [Deploy Link](http://heroku.com)
 
@@ -210,4 +213,4 @@ The url to your repository and to your deployed project
 
 The url to your presentation slides
 
-[Slides Link](http://slides.com)
+[Slides Link](https://docs.google.com/presentation/d/1dgHOmW44af6XXjREW5X7mKH4IcnIoEZrStWbaROhwyw/edit?usp=sharing)
