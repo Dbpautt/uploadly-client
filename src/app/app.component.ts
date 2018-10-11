@@ -11,22 +11,15 @@ import { Router } from '@angular/router';
 export class AppComponent implements OnInit {
   title = 'uploadly-client';
   pdfSrc: string = 'https://res.cloudinary.com/drtjvxqyi/image/upload/v1539186956/Factura_180901_-_Printsome.pdf';
-  loading = true;
-  anon: boolean;
-  user: any;
+  
 
   constructor(
     private authService: AuthService,
     private router: Router
   ) {}
 
-  ngOnInit() {
-    this.authService.userChange$.subscribe((user) => {
-      this.loading = false;
-      this.user = user;
-      this.anon = !user;
-    });
-  }
+  ngOnInit() {}
+  
 
   logout() {
     this.authService.logout()

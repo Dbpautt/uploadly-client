@@ -1,5 +1,31 @@
+<header id="site-header">
+  <h1>Uploadly</h1>
+  <div class="links">
+    <a [routerLink]="['/']">Home</a>
+    <!-- <a [routerLink]="['/create']">Create</a>
+    <a [routerLink]="['/list']">List</a> -->
+  </div>
+  <div *ngIf="!loading && user">
+    <a [routerLink]="['/']">{{user.username}}</a>
+    <a (click)="logout()">logout</a>
+  </div>
+  <div *ngIf="!loading && anon">
+    <a [routerLink]="['/login']">login</a>
+  </div>
+</header>
 
-<router-outlet></router-outlet>
+<main id="site-main">
+  <router-outlet>
+    <div *ngIf="loading">
+      <span class="username text"><img src="https://cdn.dribbble.com/users/106600/screenshots/2150230/dribbble-loader-green.gif" ></span>
+    </div>
+  </router-outlet>
+</main>
+
+<footer id="site-footer">
+  <p>Make uploading fun again!</p>
+</footer>
+
 
 <!-- <pdf-viewer [src]="pdfSrc" 
           [render-text]="true"

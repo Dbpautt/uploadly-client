@@ -1,3 +1,14 @@
+.auth-nav {
+  margin: 0 auto;
+  width: 400px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.active {
+  border-bottom: 3px solid red;
+}
+
 form {
 
   &.is-processing {

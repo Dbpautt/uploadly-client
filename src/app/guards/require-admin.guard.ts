@@ -7,7 +7,7 @@ import { AuthService } from '../services/auth.service';
 @Injectable({
   providedIn: 'root'
 })
-export class RequireUserGuard implements CanActivate {
+export class RequireAdminGuard implements CanActivate {
 
   constructor(
     private authService: AuthService,
@@ -17,7 +17,7 @@ export class RequireUserGuard implements CanActivate {
   canActivate(): Promise<any> {
     return this.authService.me()
       .then((user) => {
-        if (user && user.role === 'user') {
+        if (user && user.role === 'admin') {
           return true;
         } else {
           this.router.navigate(['/']);

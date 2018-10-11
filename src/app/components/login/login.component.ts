@@ -7,7 +7,7 @@ import { AuthService } from '../../services/auth.service';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
-export class LoginPageComponent implements OnInit {
+export class LoginComponent implements OnInit {
   feedbackEnabled = false;
   error = null;
   processing = false;
