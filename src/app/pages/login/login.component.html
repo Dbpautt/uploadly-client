@@ -1,0 +1,29 @@
+<h2>Login</h2>
+<form (ngSubmit)="submitForm(form)" #form="ngForm" novalidate [ngClass]="{'is-processing': processing}">
+
+    <div class="field" [ngClass]="{'has-error': feedbackEnabled && usernameField.errors}">
+      <label>Username</label>
+      <input type="text" name="username" [(ngModel)]="username" #usernameField="ngModel" required minlength="6" [disabled]="processing"/>
+      <div *ngIf="feedbackEnabled && usernameField.errors">
+        <p *ngIf="usernameField.errors.required" class="validation">Username required</p>
+        <p *ngIf="usernameField.errors.minlength" class="validation">Username is too short</p>
+      </div>
+    </div>
+
+    <label>Password</label>
+    <input type="text" name="password" [(ngModel)]="password" #passwordField="ngModel" required minlength="6" [disabled]="processing"/>
+    <div *ngIf="feedbackEnabled && passwordField.errors">
+      <p *ngIf="passwordField.errors.required" class="validation">Password required</p>
+      <p *ngIf="passwordField.errors.minlength" class="validation">Password is too short</p>
+    </div>
+      <div class="field submit">
+      <button type="submit" [disabled]="processing">Login</button>
+      <div *ngIf="feedbackEnabled && form.invalid">
+        <p class="validation">There are errors in the form, please review the fields</p>
+      </div>
+      <div *ngIf="error" [ngSwitch]="error">
+        <p *ngSwitchCase="'not-found'" class="validaton">Username or password are incorrect</p>
+        <p *ngSwitchDefault class="validaton">There was an error, please <a (click)="submitForm(form)">try again</a></p>
+      </div>
+    </div>
+  </form>
