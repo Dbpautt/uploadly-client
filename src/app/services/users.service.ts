@@ -21,6 +21,15 @@ export class UsersService {
       .toPromise();
   }
 
+  getUser(): Promise<any> {
+    const options = {
+      withCredentials: true
+    };
+    return this.httpClient.get(`${this.baseUrl}`, options)
+      .toPromise();
+  }
+
+
 }
 
 

@@ -21,10 +21,10 @@ export class DashboardComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    // this.authService.userChange$.subscribe((user) => {
-    //   this.user = user;
-    //   this.anon = !user;
-    // });
+    this.authService.userChange$.subscribe((user) => {
+      this.user = user;
+      this.anon = !user;
+    });
     this.usersService.getAll()
     .then((results) => {
       this.users = results;
