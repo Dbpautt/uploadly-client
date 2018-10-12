@@ -8,9 +8,9 @@ import { Router } from '@angular/router';
   styleUrls: ['./homepage.component.scss']
 })
 export class HomepageComponent implements OnInit {
-  loading = true;
   anon: boolean;
   user: any;
+  loading = true;
   isLogin = true;
   isSignup = false;
 
