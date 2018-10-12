@@ -14,6 +14,7 @@ export class LoginComponent implements OnInit {
   password: string;
   username: string;
 
+
   constructor(
     private authService: AuthService,
     private router: Router
@@ -32,8 +33,10 @@ export class LoginComponent implements OnInit {
         password: this.password
       }
       this.authService.login(data)
-        .then((result) => {
-          this.router.navigate(['/list']);
+        .then((user) => {
+          if(user.role === 'admin')
+          this.router.navigate(['/dashboard']); 
+          else this.router.navigate(['/profile']); 
         })
         .catch((err) => {
           this.error = err.error.code || 'unexpected'; 
@@ -43,4 +46,3 @@ export class LoginComponent implements OnInit {
     }
   }
 }
-
