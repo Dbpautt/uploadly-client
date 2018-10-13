@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UsersService } from 'src/app/services/users.service';
 import { AuthService } from 'src/app/services/auth.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-user-create',
@@ -18,7 +18,8 @@ export class UserCreateComponent implements OnInit {
   constructor(
     private usersService: UsersService,
     private authService: AuthService,
-    private router: Router
+    private router: Router,
+    private route: ActivatedRoute
     ) { }
 
   ngOnInit() {
@@ -34,7 +35,7 @@ export class UserCreateComponent implements OnInit {
       };
       this.usersService.createUser(data)
         .then(() => {
-          this.router.navigate(['/user/:id']);
+          this.router.navigate(['/dashboard']); 
         })
         .catch((err) => {
           this.error = err.error.code || 'unexpected'; 

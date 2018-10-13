@@ -13,6 +13,7 @@ export class DashboardComponent implements OnInit {
   error = false;
   anon: boolean;
   user: any;
+  password: string;
 
   constructor(
     private usersService: UsersService,

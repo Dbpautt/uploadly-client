@@ -22,7 +22,7 @@
         <p class="validation">There are errors in the form, please review the fields</p>
       </div>
       <div *ngIf="error" [ngSwitch]="error">
-        <p *ngSwitchCase="'username-not-unique'" class="validaton">Username is not unique, please try again</p>
+        <p *ngSwitchCase="'conflict'" class="validaton">Username is not unique, please try again</p>
         <p *ngSwitchDefault class="validaton">There was an error, please <a (click)="submitForm(form)">try again</a></p>
       </div>
     </div>

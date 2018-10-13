@@ -6,7 +6,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class DocumentsService {
   
-  private baseUrl = 'http://localhost:3000/users';
+  private baseUrl = 'http://localhost:3000/documents';
 
   constructor(private httpClient: HttpClient) {}
   
