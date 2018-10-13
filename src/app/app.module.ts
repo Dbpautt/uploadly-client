@@ -24,7 +24,7 @@ import { RequireAdminGuard } from './guards/require-admin.guard';
 const routes: Routes = [
   { path: '', component: HomepageComponent, canActivate: [ InitAuthGuard ] },
   { path: 'dashboard', component: DashboardComponent, canActivate: [ RequireAdminGuard ] },
-  { path: 'user', component: UserPageComponent, canActivate: [ RequireAdminGuard ] },
+  { path: 'user/:id', component: UserPageComponent, canActivate: [ RequireAdminGuard ] },
   { path: '**', component: NotFoundComponent, canActivate: [ InitAuthGuard ] }
 ];
 

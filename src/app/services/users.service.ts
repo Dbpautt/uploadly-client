@@ -21,11 +21,11 @@ export class UsersService {
       .toPromise();
   }
 
-  getUser(): Promise<any> {
+  getUser(id): Promise<any> {
     const options = {
       withCredentials: true
     };
-    return this.httpClient.get(`${this.baseUrl}`, options)
+    return this.httpClient.get(`${this.baseUrl}/${id}`, options)
       .toPromise();
   }
 
