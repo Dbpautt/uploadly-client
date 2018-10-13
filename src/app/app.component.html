@@ -2,12 +2,12 @@
   <h1>Uploadly</h1>
   <div *ngIf="!loading && !anon">
     <a [routerLink]="['/dashboard']">Dashboard</a>
+    <a (click)="logout()">Logout</a>
     <!-- <a [routerLink]="['/create']">Create</a>
     <a [routerLink]="['/list']">List</a> -->
   </div>
   <div *ngIf="!loading && user">
     <a [routerLink]="['/']">{{user.username}}</a>
-    <a (click)="logout()">logout</a>
   </div>
   <div *ngIf="!loading && user">
     <a [routerLink]="['/login']">login</a>
