@@ -5,11 +5,14 @@ import { RouterModule, Routes } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 
 import { PdfViewerModule } from 'ng2-pdf-viewer';
+import { FileUploadModule } from 'ng2-file-upload';
 
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { HomepageComponent } from './pages/homepage/homepage.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { UserPageComponent } from './pages/user-page/user-page.component';
+import { UserCreateComponent } from './pages/user-create/user-create.component';
+import { DocumentCreateComponent } from './pages/document-create/document-create.component';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
@@ -24,7 +27,9 @@ import { RequireAdminGuard } from './guards/require-admin.guard';
 const routes: Routes = [
   { path: '', component: HomepageComponent, canActivate: [ InitAuthGuard ] },
   { path: 'dashboard', component: DashboardComponent, canActivate: [ RequireAdminGuard ] },
+  { path: 'user/create', component: UserCreateComponent, canActivate: [ RequireAdminGuard ] },
   { path: 'user/:id', component: UserPageComponent, canActivate: [ RequireAdminGuard ] },
+  { path: 'user/:id/document/create', component: DocumentCreateComponent, canActivate: [ RequireAdminGuard ] },
   { path: '**', component: NotFoundComponent, canActivate: [ InitAuthGuard ] }
 ];
 
@@ -37,12 +42,15 @@ const routes: Routes = [
     HomepageComponent,
     DashboardComponent,
     UsersComponent,
-    UserPageComponent
+    UserPageComponent,
+    UserCreateComponent,
+    DocumentCreateComponent
   ],
   imports: [
     BrowserModule,
     RouterModule.forRoot(routes),
     PdfViewerModule,
+    FileUploadModule,
     FormsModule,
     HttpClientModule
   ],

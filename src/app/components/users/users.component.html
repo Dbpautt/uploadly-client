@@ -1,8 +1,8 @@
 <div class="card">
-  <a [routerLink]="['/users', users._id]">
+  <a [routerLink]="['/user', users._id]">
     <p>Name: {{users.username}}</p>
     <p>Documents: {{users.password.length}}</p>
-    <p>Created by: {{users.createdBy | date }}</p>
+    <p>Created by: {{users.createdBy.username}}</p>
     <img src="" >
   </a> 
 </div> 

@@ -29,7 +29,11 @@ export class UsersService {
       .toPromise();
   }
 
-
+  createUser(user): Promise<any> {
+    const options = {
+      withCredentials: true
+    };
+    return this.httpClient.post(`${this.baseUrl}`, user, options)
+      .toPromise();
+  }
 }
-
-

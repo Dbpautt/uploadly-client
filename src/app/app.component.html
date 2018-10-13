@@ -1,7 +1,7 @@
 <header id="site-header">
   <h1>Uploadly</h1>
-  <div class="links">
-    <a [routerLink]="['/']">Home</a>
+  <div *ngIf="!loading && !anon">
+    <a [routerLink]="['/dashboard']">Dashboard</a>
     <!-- <a [routerLink]="['/create']">Create</a>
     <a [routerLink]="['/list']">List</a> -->
   </div>
@@ -9,7 +9,7 @@
     <a [routerLink]="['/']">{{user.username}}</a>
     <a (click)="logout()">logout</a>
   </div>
-  <div *ngIf="!loading && anon">
+  <div *ngIf="!loading && user">
     <a [routerLink]="['/login']">login</a>
   </div>
 </header>
