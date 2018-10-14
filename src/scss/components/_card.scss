@@ -8,17 +8,12 @@ p{
   text-decoration: none;
   max-width: 200px;
   padding: 10px;
-  margin: 10px;
+  margin: 5%;
   background-color: #e1e1e1;
   border-radius: 11px;
+  width: 100%;
+  
     .initials{
-    // z-index: 5; 
-    // position: fixed;
-    // display: flex; 
-    // align-self: flex-end;
-    // bottom: 10%; 
-    // margin-bottom: 68px;
-    // margin-right: 14px;
     border-radius: 50%;
     background-color: #888888;
     display: inline-block;
@@ -36,7 +31,6 @@ p{
     border-radius: 21px;
     background-color: #f9f9f9;
   }
-  
   
   a {
       text-decoration: none;
