@@ -31,6 +31,12 @@ form {
   input {
     padding: 5px;
     font-size: 16px;
+    padding: 10px;
+    margin-bottom: 10px;
+    -webkit-appearance: none;
+    border-style: hidden;
+    border-bottom: 1px solid #bebebe;
+    font-weight: 200;
   }
 
   .submit {

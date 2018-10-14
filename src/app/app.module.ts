@@ -7,6 +7,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { PdfViewerModule } from 'ng2-pdf-viewer';
 import { FileUploadModule } from 'ng2-file-upload';
 
+import { InitialsPipe } from './pipes/initials.pipe';
+
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { HomepageComponent } from './pages/homepage/homepage.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
@@ -44,7 +46,8 @@ const routes: Routes = [
     UsersComponent,
     UserPageComponent,
     UserCreateComponent,
-    DocumentCreateComponent
+    DocumentCreateComponent,
+    InitialsPipe
   ],
   imports: [
     BrowserModule,

@@ -1,6 +1,8 @@
 <header id="site-header">
-  <h1>Uploadly</h1>
-  <div *ngIf="!loading && !anon">
+  <a class="logo" [routerLink]="['/']">
+    <img  src="../assets/images/uploadly-no-slogan.png" alt="uploadly logo">
+  </a>
+  <div class="nav" *ngIf="!loading && !anon">
     <a [routerLink]="['/dashboard']">Dashboard</a>
     <a (click)="logout()">Logout</a>
     <!-- <a [routerLink]="['/create']">Create</a>
@@ -23,7 +25,15 @@
 </main>
 
 <footer id="site-footer">
-  <p>Make uploading fun again!</p>
+  <ul class="social-media">
+    <li><a href="http://www.instagram.com/" target="_blank"><img src="../assets/images/instagram.png" ></a></li>
+    <li><a href="https://facebook.com/" target="_blank"><img src="../assets/images/facebook.png" ></a></li>
+  </ul>
+  <ul>
+    <li>Terms & Conditions</li>
+    <li>Make uploading fun again!</li>
+    <li><a href="/contact" target="_blank">Contact</a></li>
+  </ul>
 </footer>
 
 

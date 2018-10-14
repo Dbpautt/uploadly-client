@@ -1,9 +1,12 @@
 <div class="card">
   <a [routerLink]="['/user', users._id]">
-    <p>Name: {{users.username}}</p>
-    <p>Documents: {{users.password}}</p>
-    <p>Created by: {{users.createdBy.username}}</p>
-    <img src="" >
+    <div class="initials">
+        <p class="initials-letters">{{users.username | initials}}</p>
+    </div>
+    <div class="wrapper">
+      <p>Name: {{users.username}}</p>
+      <p>Created by: {{users.createdBy.username}}</p>
+    </div>
   </a> 
 </div> 
 

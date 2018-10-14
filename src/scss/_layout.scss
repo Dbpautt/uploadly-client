@@ -5,21 +5,17 @@
   align-items: center;
   padding: 0 20px;
   margin-bottom: 20px;
+  
   a {
     padding: 10px;
   }
+  img {
+    width: 100%;
+  }
 }
 
-#site-footer{
-  position: fixed;
-  bottom: 0;
-  left:0;
-  width:100%;
-  text-align:center;
-} 
-
 #site-main {
-  margin-bottom: 60px;
+  margin-bottom: 30px;
 }
 
 .container {
@@ -28,17 +24,23 @@
 
 .homepage {
   display: flex;
-
+  flex-direction: column;
+  
   .about {
     flex: 1;
-    img {
-      position: absolute;
-      z-index: -1;
-      margin-left: -25%;
-
+    background-color: #3A3A3A;
+    color: white;
+    margin-bottom: 10px;
+    h1 {
+      font-family: 'Noto Serif', serif;
+      text-align: left;
+      font-size: 28px;
     }
     p {
-      padding-top: 20px;
+      text-shadow: 1px 0 1px black;
+      padding: 20px 0;
+      letter-spacing: 0.5px;
+      text-align: left;
     }
   }
   .auth-screen {
@@ -58,6 +60,33 @@
   }
 }
 
+#site-footer{
+  color: white;
+  background-color: #b7b7b7;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  padding: 15px 0;
+
+  li {
+    padding: 0 5px;
+    font-size: 12px;
+    list-style: none;
+    text-decoration: none;
+    display: inline-block;
+  }
+  
+  a {
+    color: white;
+  }
+
+  .social-media img {
+    width: 24px;
+    margin-bottom: 0;
+  }
+} 
 
 
 
