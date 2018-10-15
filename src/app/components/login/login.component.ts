@@ -34,9 +34,10 @@ export class LoginComponent implements OnInit {
       }
       this.authService.login(data)
         .then((user) => {
-          if(user.role === 'admin')
+          if(user.role === 'admin'){
           this.router.navigate(['/dashboard']); 
-          else this.router.navigate(['/profile']); 
+          } else {this.router.navigate(['/profile']); 
+          }
         })
         .catch((err) => {
           this.error = err.error.code || 'unexpected'; 

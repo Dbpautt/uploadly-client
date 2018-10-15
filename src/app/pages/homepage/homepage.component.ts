@@ -8,7 +8,6 @@ import { Router } from '@angular/router';
   styleUrls: ['./homepage.component.scss']
 })
 export class HomepageComponent implements OnInit {
-  anon: boolean;
   user: any;
   loading = true;
   isLogin = true;
@@ -20,11 +19,8 @@ export class HomepageComponent implements OnInit {
     ) { }
 
   ngOnInit() {
-    this.authService.userChange$.subscribe((user) => {
       this.loading = false;
-      this.user = user;
-      this.anon = !user;
-    });
+      this.user = this.authService.getUser();
   }
 
   handleLoginClick() {

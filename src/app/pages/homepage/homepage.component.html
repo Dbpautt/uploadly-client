@@ -8,13 +8,15 @@
       <a (click)="handleLoginClick()" [ngClass]="{'active': isLogin}">Login</a>
       <a (click)="handleSignupClick()" [ngClass]="{'active': isSignup}">Signup</a>
     </div>
-    <ng-container *ngIf="isLogin">
-      <app-login></app-login>
-    </ng-container>
-    
-    <ng-container *ngIf="isSignup">
-      <app-signup></app-signup>
-    </ng-container>
+    <div *ngIf="user">
+      <ng-container *ngIf="isLogin">
+        <app-login></app-login>
+      </ng-container>
+      
+      <ng-container *ngIf="isSignup">
+        <app-signup></app-signup>
+      </ng-container>
+    </div>
   </div>
 </div>
 

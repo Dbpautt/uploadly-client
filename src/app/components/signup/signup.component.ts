@@ -33,7 +33,7 @@ export class SignupComponent implements OnInit {
       };
       this.authService.signup(data)
         .then(() => {
-          this.router.navigate(['/']);
+          this.router.navigate(['/dashboard']);
         })
         .catch((err) => {
           this.error = err.error.code || 'unexpected'; 
