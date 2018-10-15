@@ -13,13 +13,20 @@ export class AppComponent implements OnInit {
   pdfSrc: string = 'https://res.cloudinary.com/drtjvxqyi/image/upload/v1539186956/Factura_180901_-_Printsome.pdf';
   anon: boolean;
   user: any;
+  loading = true;
 
   constructor(
     private authService: AuthService,
     private router: Router
   ) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.authService.userChange$.subscribe((user) => {
+      this.user = user;
+      this.anon = !user;
+    });
+    this.loading = false;
+  }
   
 
   logout() {

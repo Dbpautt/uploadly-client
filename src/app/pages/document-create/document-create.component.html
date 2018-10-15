@@ -12,13 +12,19 @@
 
   <div class="field">
     <label>Type</label>
-    <select name="type">
+    <select name="type" name="type" [(ngModel)]="type" #typeField="ngModel">
+      <option value="Select"> - Select type - </option>
       <option value="Contract">Contract</option>
       <option value="Presentation">Presentation</option>
       <option value="Proposal">Proposal</option>
       <option value="Survey">Survey</option>
       <option value="Other">Other</option>
     </select>
+  </div>
+
+  <div class="field">
+      <label>Description</label>
+      <input type="text" name="description" [(ngModel)]="description" #descriptionField="ngModel" required minlength="140" [disabled]="processing"/>
   </div>
   
   <div class="field submit">
