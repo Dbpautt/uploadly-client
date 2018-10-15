@@ -1,6 +1,14 @@
 <div *ngIf="this.userdetail">
 <a [routerLink]="['/user', userdetail._id,'document','create']">Upload your document</a>
 </div>
+<p *ngIf="user" >---{{user}}--
+  </p>
+<ul class="users-list container">
+  <li *ngFor="let item of documents">
+    <app-documents [documents]="item"></app-documents>
+  </li>
+</ul>
+
 <div id="documents">
   <section class="cards container">
     <article class="card-documents card--1">
@@ -37,8 +45,6 @@
   </section>
 </div>
 
-            <div class="card-container"*ngIf="documents">
-                <div class="card" *ngFor="let document of documents">
-                  <h1>{{document.name}}</h1>
-                </div> 
-              </div>
+            
+                
+          

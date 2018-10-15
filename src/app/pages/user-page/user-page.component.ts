@@ -13,7 +13,7 @@ export class UserPageComponent implements OnInit {
   error = false;
   user: any;
   anon: boolean;
-  userdetail: any;
+  documents: any;
   
   constructor(
     private authService:AuthService,
@@ -29,9 +29,9 @@ export class UserPageComponent implements OnInit {
     this.route.params
       .subscribe((params) =>{
         this.id = params.id;
-        this.usersService.getUser(this.id)
-          .then((result) => {
-            this.userdetail = result;
+        this.usersService.getDocuments(this.id)
+          .then((results) => {
+            this.documents = results;
           })
           .catch((error) => {
             console.log(error);
