@@ -1,5 +1,6 @@
-<a [routerLink]="['/user','userdetail.id','document','create']">Upload your document</a>
-
+<div *ngIf="this.userdetail">
+<a [routerLink]="['/user', userdetail._id,'document','create']">Upload your document</a>
+</div>
 <div id="documents">
   <section class="cards container">
     <article class="card-documents card--1">
