@@ -11,7 +11,7 @@ export class DocumentCreateComponent implements OnInit {
   @Input() users: any;
 
   uploader: FileUploader = new FileUploader({
-    url: `http://localhost:3000/users/${user._id}/documents`
+    url: 'http://localhost:3000/users/user._id/documents'
   });
 
   feedbackEnabled = false;
