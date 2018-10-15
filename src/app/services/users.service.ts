@@ -36,4 +36,15 @@ export class UsersService {
     return this.httpClient.post(`${this.baseUrl}`, user, options)
       .toPromise();
   }
+
+  getDocuments(id): Promise<any> {
+    const options = {
+      withCredentials: true
+    };
+    return this.httpClient.get(`${this.baseUrl}/${id}`, options)
+      .toPromise();
+  }
+
 }
+
+

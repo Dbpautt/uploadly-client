@@ -35,5 +35,4 @@ export class DashboardComponent implements OnInit {
       this.error = true;
     });
   }
-  // createUser()
 }

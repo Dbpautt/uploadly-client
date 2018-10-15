@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { FileUploader } from 'ng2-file-upload/ng2-file-upload';
-import { DocumentsService } from 'src/app/services/documents.service';
+import { UsersService } from 'src/app/services/users.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-document-create',
@@ -27,17 +28,13 @@ export class DocumentCreateComponent implements OnInit {
   uploadedBy: any;
 
   constructor(
-    private documentsService: DocumentsService
+    private usersService: UsersService,
+    private route: ActivatedRoute
   ) {}
 
   ngOnInit () {
-    this.documentsService.getAll()
-      .then((results) => {
-        this.documents = results;
-      });
-
     this.uploader.onSuccessItem = (item, response) => {
-      this.documentsService.getAll()
+      this.usersService.getDocuments(this.id)
       .then((results) => {
         this.documents = results;
       });

@@ -1,0 +1,31 @@
+.homepage {
+  display: flex;
+  flex-direction: column;
+  
+  .about {
+    flex: 1;
+    background: url('https://picsum.photos/527/700') no-repeat center center fixed;
+    color: white;
+    margin-bottom: 10px;
+    background-size: cover;
+    background-position: 0 -80px;
+    height: 51vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    h1 {
+      text-align: left;
+    }
+    p {
+      padding: 20px 0;
+      letter-spacing: 0.5px;
+      text-align: left;
+      color: #f5f5f5;
+      text-shadow: 0px 1px 0px black;
+    }
+  }
+  .auth-screen {
+    flex: 1;
+  }
+}
