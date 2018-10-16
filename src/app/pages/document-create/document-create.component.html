@@ -1,6 +1,6 @@
 <h1> Add a document</h1>
 
-<form (ngSubmit)="submitForm(form)" #form="ngForm" novalidate>
+<form class="container" (ngSubmit)="submitForm(form)" #form="ngForm" novalidate>
   <div class="field">
     <label>Name</label>
     <input type="text" name="name" [(ngModel)]="name" #nameField="ngModel" required minlength="3" [disabled]="processing"/>

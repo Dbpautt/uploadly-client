@@ -1,14 +1,16 @@
 
 <a [routerLink]="['/user', id,'document','create']">Upload your document</a>
 
-<ul class="users-list container">
-  <li *ngFor="let item of documents">
-    <app-documents [documents]="item"></app-documents>
-  </li>
-</ul>
+<div id="documents">
+  <ul class="cards container">
+    <li *ngFor="let item of documents">
+      <app-documents [documents]="item"></app-documents>
+    </li>
+  </ul>
+</div>
 
 <div id="documents">
-  <section class="cards container">
+  <section class="card container">
     <article class="card-documents card--1">
       <div class="card__info-hover">
         <svg class="card__like"  viewBox="0 0 24 24">

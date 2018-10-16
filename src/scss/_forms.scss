@@ -11,6 +11,11 @@
 
 form {
 
+  &.container {
+    max-width: 368px;
+    margin: 0 auto;
+
+  }
   &.is-processing {
       opacity: 0.5;
   }
@@ -28,17 +33,19 @@ form {
     font-style: bold;
   }
 
-  input {
+  input, select {
     padding: 5px;
     font-size: 16px;
     padding: 10px;
     margin-bottom: 10px;
-    -webkit-appearance: none;
     border-style: hidden;
     border-bottom: 1px solid #bebebe;
     font-weight: 200;
-  }
+    width: 80%;
+    height: 40px;
 
+  }
+  
   .submit {
     padding-top: 20px;
   }

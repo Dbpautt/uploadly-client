@@ -166,7 +166,7 @@ type - String [enum: 'contract', 'proposal', 'presentation', 'survey']
   - validate if user exists and was created by currentUser
   - returns all documents where :id is the recipiend
 
-POST /users/:id/document/create
+- POST /users/:id/document/create
   - requires admin
   - validate valid id
   - validate if user exists and was created by currentUser

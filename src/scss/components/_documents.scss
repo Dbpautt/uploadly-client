@@ -2,16 +2,17 @@
 
 
 #documents {
+  // position: relative;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  // flex: 1 0 33%;
 }
 
-.cards {
-  width: 100%;
-  display: flex;
-  justify-content: space-around;
-  max-width: 820px;
+.cards>document-cards {
+  padding: 20px 0;
+  flex-wrap: wrap;
+  flex-direction: row;
+  position: relative;
+  flex: 1 0 33%;
 }
 
 .card--1 .card__img, .card--1 .card__img--hover {
@@ -61,7 +62,6 @@
 .card-documents {
   transition: all .4s cubic-bezier(0.175, 0.885, 0, 1);
   background-color: #fff;
-  width: 33.3%;
   position: relative;
   border-radius: 12px;
   overflow: hidden;
