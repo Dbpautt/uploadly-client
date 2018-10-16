@@ -8,7 +8,7 @@
       <a (click)="handleLoginClick()" [ngClass]="{'active': isLogin}">Login</a>
       <a (click)="handleSignupClick()" [ngClass]="{'active': isSignup}">Signup</a>
     </div>
-    <div *ngIf="user">
+    <div *ngIf="!user">
       <ng-container *ngIf="isLogin">
         <app-login></app-login>
       </ng-container>

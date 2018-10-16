@@ -1,8 +1,6 @@
-<div *ngIf="this.userdetail">
-<a [routerLink]="['/user', userdetail._id,'document','create']">Upload your document</a>
-</div>
-<p *ngIf="user" >---{{user}}--
-  </p>
+
+<a [routerLink]="['/user', id,'document','create']">Upload your document</a>
+
 <ul class="users-list container">
   <li *ngFor="let item of documents">
     <app-documents [documents]="item"></app-documents>

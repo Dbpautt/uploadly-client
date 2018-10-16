@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
 })
 export class HomepageComponent implements OnInit {
   user: any;
+  anon: boolean;
   loading = true;
   isLogin = true;
   isSignup = false;
@@ -19,8 +20,12 @@ export class HomepageComponent implements OnInit {
     ) { }
 
   ngOnInit() {
-      this.loading = false;
-      this.user = this.authService.getUser();
+    this.user = this.authService.getUser();
+    this.authService.userChange$.subscribe((user) => {
+      this.user = user;
+      this.anon = !user;
+    });
+    this.loading = false;
   }
 
   handleLoginClick() {

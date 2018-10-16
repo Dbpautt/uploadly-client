@@ -1,6 +1,6 @@
 <h1> Add a document</h1>
 
-<form (ngSubmit)="submitForm(form)" #form="ngForm" novalidate >
+<form (ngSubmit)="submitForm(form)" #form="ngForm" novalidate>
   <div class="field">
     <label>Name</label>
     <input type="text" name="name" [(ngModel)]="name" #nameField="ngModel" required minlength="3" [disabled]="processing"/>
@@ -10,21 +10,21 @@
       </div>  
   </div>
 
-  <div class="field">
+
     <label>Type</label>
     <select name="type" name="type" [(ngModel)]="type" #typeField="ngModel">
-      <option value="Select"> - Select type - </option>
+      <option value="" selected>Select type</option>
       <option value="Contract">Contract</option>
       <option value="Presentation">Presentation</option>
       <option value="Proposal">Proposal</option>
       <option value="Survey">Survey</option>
       <option value="Other">Other</option>
     </select>
-  </div>
+
 
   <div class="field">
       <label>Description</label>
-      <input type="text" name="description" [(ngModel)]="description" #descriptionField="ngModel" required minlength="140" [disabled]="processing"/>
+      <input type="text" name="description" [(ngModel)]="description" #descriptionField="ngModel" required minlength="3" [disabled]="processing"/>
   </div>
   
   <div class="field submit">
@@ -33,4 +33,12 @@
     <button type="submit" name="document">Add the document</button>
   </div>
 </form>
+
+<div *ngIf="uploadSuccess">
+  <p>Upload Succesfull <span [routerLink]="['/user', id]">Click Here!</span> to see your users profile</p>
+</div>
+
+<div *ngIf="uploadError">
+  <p>{{ feedback }}</p>
+</div>
 

@@ -25,7 +25,7 @@ import { InitAuthGuard } from './guards/init-auth.guard';
 import { RequireAnonGuard } from './guards/require-anon.guard';
 import { RequireUserGuard } from './guards/require-user.guard';
 import { RequireAdminGuard } from './guards/require-admin.guard';
-import { DocumentsComponent } from './component/documents/documents.component';
+import { DocumentsComponent } from './components/documents/documents.component';
 
 const routes: Routes = [
   { path: '', component: HomepageComponent, canActivate: [ InitAuthGuard ]  },
