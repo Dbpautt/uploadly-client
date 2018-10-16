@@ -1,18 +1,14 @@
 @import url('https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i');
 
 
-#documents {
-  // position: relative;
-  display: flex;
-  // flex: 1 0 33%;
-}
+// #documents {}
 
-.cards>document-cards {
-  padding: 20px 0;
-  flex-wrap: wrap;
-  flex-direction: row;
-  position: relative;
-  flex: 1 0 33%;
+.cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-auto-rows: auto;
+  grid-gap: 15px;
+  list-style: none;
 }
 
 .card--1 .card__img, .card--1 .card__img--hover {
