@@ -1,0 +1,9 @@
+<div class="profile">
+  Yur username: {{user.username}}
+</div>
+
+<div *ngIf="documents">
+  <div *ngFor="let document of documents">
+      <h1>Review your {{documents}}</h1>
+  </div>
+</div>

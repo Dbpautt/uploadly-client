@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
 import { ActivatedRoute } from '@angular/router';
 import { UsersService } from 'src/app/services/users.service'
+import { DocumentService } from 'src/app/services/document.service';
 
 @Component({
   selector: 'app-user-page',
@@ -17,7 +18,7 @@ export class UserPageComponent implements OnInit {
   
   constructor(
     private authService:AuthService,
-    private usersService: UsersService,
+    private documentService: DocumentService,
     private route: ActivatedRoute
   ) { }
 
@@ -29,7 +30,7 @@ export class UserPageComponent implements OnInit {
     this.route.params
       .subscribe((params) =>{
         this.id = params.id;
-        this.usersService.getDocuments(this.id)
+        this.documentService.getDocumentsForUser(this.id)
           .then((results) => {
             this.documents = results;
           })
@@ -40,14 +41,3 @@ export class UserPageComponent implements OnInit {
     });
   }
 }
-
-
-// this.route.params
-//       .subscribe((params) =>{
-//         this.id = params.id;
-//         this.usersService.getDocuments(this.id)
-//           .then((results) => {
-//             this.documents = results;
-//         });
-//       }
-//     )

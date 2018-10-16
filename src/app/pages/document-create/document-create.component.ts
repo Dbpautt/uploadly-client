@@ -4,7 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { FileUploader } from 'ng2-file-upload/ng2-file-upload';
 
 import { AuthService } from 'src/app/services/auth.service';
-import { UsersService } from 'src/app/services/users.service';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-document-create',
@@ -13,6 +13,10 @@ import { UsersService } from 'src/app/services/users.service';
 })
 
 export class DocumentCreateComponent implements OnInit {
+
+  private API_URL = environment.apiUrl + '/users';
+
+  
   userId: string;
   uploader: FileUploader;
   id: string;
@@ -20,7 +24,7 @@ export class DocumentCreateComponent implements OnInit {
   userdetail: any;
   feedback: string;
   name: string;
-  type: any;
+  type: any ='';
   description: any;
   uploadedBy: any;
 
@@ -31,19 +35,17 @@ export class DocumentCreateComponent implements OnInit {
   uploadError = false;
   
   constructor(
-    private usersService: UsersService,
     private route: ActivatedRoute,
-    private authService: AuthService,
-    private router: Router
+    private authService: AuthService
   ) {}
 
   ngOnInit () {
     this.route.params.subscribe(params => {
       this.id = params.id
       this.uploader = new FileUploader({
-        url: `http://localhost:3000/users/${params.id}/document/create`
-      })
-    })
+        url: `${this.API_URL}/${params.id}/document/create`
+      });
+    });
 
     this.uploadedBy = this.authService.getUser()._id
 
@@ -54,19 +56,25 @@ export class DocumentCreateComponent implements OnInit {
     this.uploader.onErrorItem = (item, response, status, headers) => {
       this.feedback = JSON.parse(response).message;
       this.uploadError = true;
+      this.processing = false;
     };
   }
   
   submitForm(form) {
-    if (form.valid) {
+    this.feedbackEnabled = true;
+    /*if (this.uploader....) {
+      this.fileRequiredMsg = true;
+    }*/
+    if (form.valid /*&& this.uploader.....*/) {
+      this.processing = true;
       this.uploader.onBuildItemForm = (item, form2) => {
         form2.append('name', this.name);
         form2.append('type', this.type);
         form2.append('description', this.description);
         form2.append('uploadedBy', this.uploadedBy);
       };
+      this.uploader.uploadAll();
     }
-    this.uploader.uploadAll();
     
   }
 }

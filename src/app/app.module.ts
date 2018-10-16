@@ -26,6 +26,7 @@ import { RequireAnonGuard } from './guards/require-anon.guard';
 import { RequireUserGuard } from './guards/require-user.guard';
 import { RequireAdminGuard } from './guards/require-admin.guard';
 import { DocumentsComponent } from './components/documents/documents.component';
+import { ProfileComponent } from './pages/profile/profile.component';
 
 const routes: Routes = [
   { path: '', component: HomepageComponent, canActivate: [ InitAuthGuard ]  },
@@ -33,6 +34,7 @@ const routes: Routes = [
   { path: 'user/create', component: UserCreateComponent, canActivate: [ RequireAdminGuard ] },
   { path: 'user/:id', component: UserPageComponent, canActivate: [ RequireAdminGuard ] },
   { path: 'user/:id/document/create', component: DocumentCreateComponent, canActivate: [ RequireAdminGuard ] },
+  { path: 'profile', component: ProfileComponent, canActivate: [ RequireUserGuard ] },
   { path: '**', component: NotFoundComponent, canActivate: [ InitAuthGuard ] }
 ];
 
@@ -49,7 +51,8 @@ const routes: Routes = [
     UserCreateComponent,
     DocumentCreateComponent,
     InitialsPipe,
-    DocumentsComponent
+    DocumentsComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,

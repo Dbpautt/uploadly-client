@@ -2,14 +2,13 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpResponse } from '@angular/common/http';
 
 import { environment } from '../../environments/environment';
-const apiUrl = environment.apiUrl + '/users';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UsersService {
 
-  private baseUrl = 'http://localhost:3000/users';
+  private baseUrl = environment.apiUrl;
 
   constructor(private httpClient: HttpClient) {}
   
@@ -17,15 +16,15 @@ export class UsersService {
     const options = {
       withCredentials: true
     };
-    return this.httpClient.get(`${this.baseUrl}`, options)
+    return this.httpClient.get(`${this.baseUrl}/users`, options)
       .toPromise();
   }
 
-  getUser(id): Promise<any> {
+  profile(id): Promise<any> {
     const options = {
       withCredentials: true
     };
-    return this.httpClient.get(`${this.baseUrl}/${id}`, options)
+    return this.httpClient.get(`${this.baseUrl}/profile`, options)
       .toPromise();
   }
 
@@ -33,17 +32,10 @@ export class UsersService {
     const options = {
       withCredentials: true
     };
-    return this.httpClient.post(`${this.baseUrl}`, user, options)
+    return this.httpClient.post(`${this.baseUrl}/users`, user, options)
       .toPromise();
   }
 
-  getDocuments(id): Promise<any> {
-    const options = {
-      withCredentials: true
-    };
-    return this.httpClient.get(`${this.baseUrl}/${id}`, options)
-      .toPromise();
-  }
 
 }
 

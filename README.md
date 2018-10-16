@@ -92,13 +92,13 @@ Notifications:
   - auth.me()
   - auth.getUser() // synchronous
 - Document Service
-  - document.list()
-  - document.create(data)
+  - document.getDocumentsForCurrentUser()
+  - document.getDocumentsForUser(userId)
   - document.detail(id)
+  - NOTE: document.create(data) replaced by uploader
 - User Service
-  - user.list()
-  - user.create(data)
-  - user.profile(id)
+  - user.getAll()
+  - user.createUser(data)
 
 ## Guards
 
@@ -147,7 +147,7 @@ type - String [enum: 'contract', 'proposal', 'presentation', 'survey']
   - body:
     - username
     - password
-- POST /user
+- POST /users
  - requires admin
  - body:
     - username
@@ -155,15 +155,18 @@ type - String [enum: 'contract', 'proposal', 'presentation', 'survey']
   - validate user is unique (409)
   - create user
   - returns user
-- GET /user
+
+- GET /users
   - requires admin
   - returns all users created by the currentUser
-- GET /user/:id
+
+- GET /users/:id/documents
   - requires admin
   - validate valid id
   - validate if user exists and was created by currentUser
+  - returns all documents where :id is the recipiend
 
-POST /user/:id/document/create
+POST /users/:id/document/create
   - requires admin
   - validate valid id
   - validate if user exists and was created by currentUser
@@ -177,17 +180,18 @@ POST /user/:id/document/create
   - create doc
   - returns doc
   
-- GET /user/:id/document/:id/detail
+- GET /users/:id/documents/:id/detail
   - requires user
   - validate valid user id, document id, document is owned by the recipient (user id)
-- GET /profile/me
-  - validate valid id
-  - validate if user exists and was created by currentUser
+
+- GET /profile/documents
   - requires user
-- GET /profile/me/document/:id
-  - validate valid user id, document id, document is owned by the recipient (user id)
-  - validate if user exists and was created by currentUser
+  - returns the documents where the currentUser is the recipient
+
+- GET /profile/documents/:id
+  - validate valid user id, document id, document is owned by the recipient (req.currentUser._id)
   - requires user
+
 - POST /auth/logout
   - requires user
   - validate if user exists and was created by currentUser
