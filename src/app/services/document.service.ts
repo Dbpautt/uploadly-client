@@ -36,11 +36,11 @@ export class DocumentService {
       .toPromise();
   }
 
-  getAdminDocumentDetail(id, docId): Promise<any> {
+  getAdminDocumentDetail(id, docid): Promise<any> {
     const options = {
       withCredentials: true
     };
-    return this.httpClient.get(`${this.baseUrl}/users/${id}/document/${docId}`, options)
+    return this.httpClient.get(`${this.baseUrl}/users/${id}/document/${docid}`, options)
       .toPromise();
   }
 }

@@ -11,11 +11,11 @@ import { DocumentService } from 'src/app/services/document.service';
 export class AdminDocumentDetailPageComponent implements OnInit {
   title = 'uploadly-client';
   user: any;
-  id: string;
+  userid: string;
   document: any;
   file: string;
   error = false;
-  docId: any;
+  docid: any;
 
   constructor(
     private route: ActivatedRoute,
@@ -27,13 +27,12 @@ export class AdminDocumentDetailPageComponent implements OnInit {
     this.user = this.authService.getUser();
     this.route.params
     .subscribe((params) =>{
-      this.id = params.userid;
-      console.log(params);  
-      this.documentService.getDocumentsForUser(this.id)
-      .then((results) => {
-        this.document = results;
-        this.docId = params.docid;
-        this.documentService.getAdminDocumentDetail(this.id, this.docId)
+      this.userid = params.userid;
+      this.docid = params.docid;
+      this.documentService.getAdminDocumentDetail(this.userid, this.docid)
+        .then((result)=>{
+        console.log(result)
+        this.document = result;
       })
       .catch((error) => {
         console.log(error);
