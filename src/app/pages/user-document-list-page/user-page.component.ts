@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
 import { ActivatedRoute } from '@angular/router';
-import { UsersService } from 'src/app/services/users.service'
 import { DocumentService } from 'src/app/services/document.service';
 
 @Component({
@@ -9,7 +8,7 @@ import { DocumentService } from 'src/app/services/document.service';
   templateUrl: './user-page.component.html',
   styleUrls: ['./user-page.component.scss']
 })
-export class UserPageComponent implements OnInit {
+export class UserDocumentListPageComponent implements OnInit {
   id: string;
   error = false;
   user: any;

@@ -4,11 +4,11 @@ import { AuthService } from 'src/app/services/auth.service';
 import { DocumentService } from 'src/app/services/document.service';
 
 @Component({
-  selector: 'app-document-detail',
+  selector: 'app-document-detail-page',
   templateUrl: './document-detail.component.html',
   styleUrls: ['./document-detail.component.scss']
 })
-export class DocumentDetailComponent implements OnInit {
+export class DocumentDetailPageComponent implements OnInit {
   title = 'uploadly-client';
   user: any;
   id: string;
