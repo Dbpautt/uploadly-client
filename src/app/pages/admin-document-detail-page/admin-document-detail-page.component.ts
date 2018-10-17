@@ -31,7 +31,6 @@ export class AdminDocumentDetailPageComponent implements OnInit {
       this.docid = params.docid;
       this.documentService.getAdminDocumentDetail(this.userid, this.docid)
         .then((result)=>{
-        console.log(result)
         this.document = result;
       })
       .catch((error) => {

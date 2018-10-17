@@ -3,15 +3,18 @@
     <img src="../assets/images/uploadly-no-slogan.png" alt="uploadly logo">
   </a>
 
-  <div *ngIf="!loading && !!user && user.role === 'admin'">
-    <a [routerLink]="['/dashboard']">Dashboard</a>
-  </div>
-  <div *ngIf="!loading && !!user && user.role === 'user'">
-    <a [routerLink]="['/profile']">Profile</a>
-  </div>
   <div class="nav" *ngIf="!loading && !!user">
-    <a [routerLink]="['/']"> {{user.username}}</a>
-    <a (click)="logout()">Logout</a>
+    <div *ngIf="!loading && !!user && user.role === 'admin'">
+      <a [routerLink]="['/dashboard']">Dashboard</a>
+      <a [routerLink]="['/dashboard']"> {{user.username}}</a>
+    </div>
+    <div *ngIf="!loading && !!user && user.role === 'user'">
+      <a [routerLink]="['/profile']">Profile</a>
+      <a [routerLink]="['/profile']"> {{user.username}}</a>
+    </div>
+    <div class="navigation">
+      <a class="button" (click)="logout()">Logout</a>
+    </div>
   </div>
   
 </header>

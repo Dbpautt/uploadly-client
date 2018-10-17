@@ -4,16 +4,21 @@ body {
   background-color: #D2DBDD;
 }
 
-a {
-  text-decoration: none;
-  color: black;
+html, body { 
+  height: 100%;
 }
 
 #site-header {
+  position: sticky;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 20px; 
+  background-color: white;
+  box-shadow: 0 -3px 11px #d4d5d4;
+  height: 80px;
+  top: 0;
+  z-index: 1;
+  
   a {
     padding: 10px;
   }
@@ -22,8 +27,15 @@ a {
   }
 }
 
+.nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 #site-main {
-  margin-bottom: 30px;
+  position: relative;
+  margin-bottom: 50vh;
 }
 
 .container {
