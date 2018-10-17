@@ -35,4 +35,12 @@ export class DocumentService {
     return this.httpClient.get(`${this.baseUrl}/profile/document/${id}`, options)
       .toPromise();
   }
+
+  getAdminDocumentDetail(id, docId): Promise<any> {
+    const options = {
+      withCredentials: true
+    };
+    return this.httpClient.get(`${this.baseUrl}/users/${id}/document/${docId}`, options)
+      .toPromise();
+  }
 }

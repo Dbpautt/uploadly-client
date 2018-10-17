@@ -56,7 +56,7 @@ export class DocumentCreateComponent implements OnInit {
     };
 
     this.uploader.onErrorItem = (item, response, status, headers) => {
-      this.feedback = JSON.parse(response).code;
+      this.feedback = JSON.parse(response).code || 'unexpected';
       this.uploadError = true;
       this.processing = false;
     };

@@ -17,6 +17,7 @@ import { UserCreateComponent } from './pages/user-create/user-create.component';
 import { DocumentCreateComponent } from './pages/document-create/document-create.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { DocumentDetailPageComponent } from './pages/document-detail/document-detail.component';
+import { AdminDocumentDetailPageComponent } from './pages/admin-document-detail-page/admin-document-detail-page.component';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
@@ -36,6 +37,7 @@ const routes: Routes = [
   { path: 'user/create', component: UserCreateComponent, canActivate: [ RequireAdminGuard ] },
   { path: 'user/:id', component: UserDocumentListPageComponent, canActivate: [ RequireAdminGuard ] },
   { path: 'user/:id/document/create', component: DocumentCreateComponent, canActivate: [ RequireAdminGuard ] },
+  { path: 'user/:userid/document/:docid', component: AdminDocumentDetailPageComponent, canActivate: [ RequireAdminGuard ] },
   { path: 'profile', component: ProfileComponent, canActivate: [ RequireUserGuard ] },
   { path: 'profile/document/:id', component: DocumentDetailPageComponent, canActivate: [ RequireUserGuard ] },
   { path: '**', component: NotFoundComponent, canActivate: [ InitAuthGuard ] }
@@ -57,7 +59,8 @@ const routes: Routes = [
     DocumentsListComponent,
     ProfileComponent,
     DocumentDetailPageComponent,
-    DocumentDetailComponent
+    DocumentDetailComponent,
+    AdminDocumentDetailPageComponent
   ],
   imports: [
     BrowserModule,

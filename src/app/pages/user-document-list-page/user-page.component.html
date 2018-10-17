@@ -19,7 +19,9 @@
     </a>
   </li>
   <li *ngFor="let item of documents">
-    <app-documents [documents]="item"></app-documents>
+    <a [routerLink]="['/user', id, 'document', item._id]">
+      <app-documents [documents]="item"></app-documents>
+    </a>
   </li>
 </ul>
 

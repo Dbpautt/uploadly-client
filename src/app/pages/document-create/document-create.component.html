@@ -51,6 +51,6 @@
 </div>
 
 <div class="validation" *ngIf="uploadError">
-  <p>{{ feedback }}</p>
+  There was an error, please <a (click)="submitForm(form)">try again</a>
 </div>
 
