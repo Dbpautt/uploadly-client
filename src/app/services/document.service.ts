@@ -16,7 +16,7 @@ export class DocumentService {
     const options = {
       withCredentials: true
     };
-    return this.httpClient.get(`${this.baseUrl}/users/${userId}/documents`, options)
+    return this.httpClient.get(`${this.baseUrl}/users/${userId}/document`, options)
       .toPromise();
   }
 
@@ -24,7 +24,15 @@ export class DocumentService {
     const options = {
       withCredentials: true
     };
-    return this.httpClient.get(`${this.baseUrl}/profile/documents`, options)
+    return this.httpClient.get(`${this.baseUrl}/profile/document`, options)
+      .toPromise();
+  }
+  
+  getDocumentDetail(id): Promise<any> {
+    const options = {
+      withCredentials: true
+    };
+    return this.httpClient.get(`${this.baseUrl}/profile/document/${id}`, options)
       .toPromise();
   }
 }

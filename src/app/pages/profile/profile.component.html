@@ -2,7 +2,7 @@
 
 <ul class="cards container"  *ngIf="documents">
   <li *ngFor="let item of documents">
-      <a [routerLink]="['/user', id,'document','create']">
+      <a [routerLink]="['/profile/document', item._id]">
         <app-documents [documents]="item"></app-documents>
       </a>
   </li>

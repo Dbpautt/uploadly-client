@@ -58,8 +58,8 @@ Notifications:
 - /user/:id - user document list (admin)
 - /user/:id/document/create - documents create (admin)
 - /user/:id/document/:id - document detail (admin)
-- /profile/me - document list (user)
-- /profile/me/document/:id - document detail (user)
+- /profile - document list (user)
+- /profile/document/:id - document detail (user)
 
 
 ## Pages
