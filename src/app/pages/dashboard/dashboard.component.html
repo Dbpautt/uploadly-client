@@ -1,7 +1,23 @@
-<a [routerLink]="['/user/create']">Click here to create a new user:</a>
-<ul class="users-list container">
-  <li *ngFor="let item of users">
-    <app-users [users]="item"></app-users>
-  </li>
-</ul>
+
+<div class="lonely-state" *ngIf="users && !users.length">
+  <img class="cat" src="../../../assets/images/cat-state.png" alt="">
+  <h3>Hello, this is your space! </h3>
+  <p>No users have been created yet… </p>
+  <a [routerLink]="['/user/create']">
+    <p>Create your first user</p>
+    <img src="../../../assets/icons/file-icon.png" alt="">
+  </a>
+</div>
+
+<div *ngIf="users && users.length">
+  <h3>Users you created: </h3>
+  <ul class="users-list container">
+    <li *ngFor="let item of users">
+      <app-users [users]="item"></app-users>
+    </li>
+  </ul>
+  <a [routerLink]="['/user/create']">
+    <img src="../../../assets/icons/file-icon.png" alt="">
+  </a>
+</div>
 

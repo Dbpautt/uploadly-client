@@ -1,11 +1,10 @@
 <div class="card">
   <a [routerLink]="['/user', users._id]">
-    <div class="initials">
+    <div class="initials" [ngStyle]="{'background-color': users.color}">
         <p class="initials-letters">{{users.username | initials}}</p>
     </div>
     <div class="wrapper">
       <p>Name: {{users.username}}</p>
-      <p>Created by: {{users.createdBy.username}}</p>
     </div>
   </a> 
 </div> 
