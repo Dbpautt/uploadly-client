@@ -1,9 +1,14 @@
-<div class="profile">
-  {{user.username}}
-</div>
+<h3 *ngIf="user">Hello, {{user.username}}</h3>
 
-<div *ngIf="documents">
-  <div *ngFor="let document of documents">
-      <h1>Review your {{documents}}</h1>
-  </div>
+<ul class="cards container"  *ngIf="documents">
+  <li *ngFor="let item of documents">
+      <a [routerLink]="['/user', id,'document','create']">
+        <app-documents [documents]="item"></app-documents>
+      </a>
+  </li>
+</ul>
+
+
+<div *ngIf="documents && !documents.length">
+  <p>Welcome to uploadly. No documents have been shared with you yet…so watch this space 😊</p>
 </div>
