@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiUrl: 'http://uploadly-server.herokuapp.com'
+  apiUrl: 'https://uploadly-server.herokuapp.com'
 };
