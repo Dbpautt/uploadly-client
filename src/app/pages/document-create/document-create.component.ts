@@ -5,6 +5,7 @@ import { FileUploader } from 'ng2-file-upload/ng2-file-upload';
 
 import { AuthService } from 'src/app/services/auth.service';
 import { environment } from '../../../environments/environment';
+import { flatten } from '@angular/router/src/utils/collection';
 
 @Component({
   selector: 'app-document-create',
@@ -33,6 +34,7 @@ export class DocumentCreateComponent implements OnInit {
   error = null;
   uploadSuccess = false;
   uploadError = false;
+  fileRequiredMsg = false;
   
   constructor(
     private route: ActivatedRoute,
@@ -54,18 +56,20 @@ export class DocumentCreateComponent implements OnInit {
     };
 
     this.uploader.onErrorItem = (item, response, status, headers) => {
-      this.feedback = JSON.parse(response).message;
+      this.feedback = JSON.parse(response).code;
       this.uploadError = true;
       this.processing = false;
     };
   }
   
   submitForm(form) {
+    this.error = '';
     this.feedbackEnabled = true;
-    /*if (this.uploader....) {
+    const fileSelected = this.uploader.getNotUploadedItems();
+      if (!fileSelected.length) {
       this.fileRequiredMsg = true;
-    }*/
-    if (form.valid /*&& this.uploader.....*/) {
+    }
+    if (form.valid && fileSelected.length) {
       this.processing = true;
       this.uploader.onBuildItemForm = (item, form2) => {
         form2.append('name', this.name);

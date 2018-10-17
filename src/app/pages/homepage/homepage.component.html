@@ -4,11 +4,11 @@
     <p class="container">...the slightly different uploading service. It's free, fast and handsome. <br>Your shared documents are safe with us, and retrievable wherever you or your team mates are.</p>
   </div>
   <div class="auth-screen">
-    <div class="auth-nav">
-      <a (click)="handleLoginClick()" [ngClass]="{'active': isLogin}">Login</a>
-      <a (click)="handleSignupClick()" [ngClass]="{'active': isSignup}">Signup</a>
-    </div>
     <div *ngIf="!user">
+      <div class="auth-nav">
+        <a (click)="handleLoginClick()" [ngClass]="{'active': isLogin}">Login</a>
+        <a (click)="handleSignupClick()" [ngClass]="{'active': isSignup}">Signup</a>
+      </div>
       <ng-container *ngIf="isLogin">
         <app-login></app-login>
       </ng-container>
