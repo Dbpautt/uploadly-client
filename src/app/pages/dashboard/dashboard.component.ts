@@ -26,6 +26,7 @@ export class DashboardComponent implements OnInit {
       this.user = user;
       this.anon = !user;
     });
+    this.user = this.authService.getUser();
     this.usersService.getAll()
     .then((results) => {
       this.users = results;

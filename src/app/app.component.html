@@ -5,12 +5,10 @@
 
   <div class="nav" *ngIf="!loading && !!user">
     <div *ngIf="!loading && !!user && user.role === 'admin'">
-      <a [routerLink]="['/dashboard']">Dashboard</a>
-      <a [routerLink]="['/dashboard']"> {{user.username}}</a>
+      <a [routerLink]="['/dashboard']" routerLinkActive="active">Dashboard</a>
     </div>
     <div *ngIf="!loading && !!user && user.role === 'user'">
-      <a [routerLink]="['/profile']">Profile</a>
-      <a [routerLink]="['/profile']"> {{user.username}}</a>
+      <a [routerLink]="['/profile']" routerLinkActive="active">Profile</a>
     </div>
     <div class="navigation">
       <a class="button" (click)="logout()">Logout</a>

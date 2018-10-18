@@ -1,22 +1,6 @@
 <h3>The perfect spot to upload your files!</h3>
 
 <ul class="cards container">
-  <li>
-    <a [routerLink]="['/user', id,'document','create']">
-      <article class="card-documents card--1">
-        <div class="card__img"></div>
-        <a class="card_link">
-        <div class="card__img--hover">
-        </div>
-        </a>
-        <div class="card__info">
-          <span class="card__category"> Click</span>
-          <h3 class="card__title">Here to</h3>
-          <h3 class="card__title">upload a doc</h3>
-        </div>
-      </article>
-    </a>
-  </li>
   <li *ngFor="let item of documents">
     <a [routerLink]="['/user', id, 'document', item._id]">
       <app-documents [documents]="item"></app-documents>
@@ -24,8 +8,4 @@
   </li>
 </ul>
 
-
-
-            
-                
-          
+<a class="button-add" [routerLink]="['/user', id,'document','create']">+</a>
