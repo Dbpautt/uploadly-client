@@ -38,6 +38,7 @@ export class DocumentCreateComponent implements OnInit {
   
   constructor(
     private route: ActivatedRoute,
+    private router: Router,
     private authService: AuthService
   ) {}
 
@@ -53,6 +54,7 @@ export class DocumentCreateComponent implements OnInit {
 
     this.uploader.onSuccessItem = (item, response) => {
       this.uploadSuccess = true;
+      this.router.navigate(['/user',this.id]); 
     };
 
     this.uploader.onErrorItem = (item, response, status, headers) => {

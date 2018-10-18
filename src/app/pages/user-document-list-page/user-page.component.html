@@ -1,4 +1,5 @@
-<h3>The perfect spot to upload your files!</h3>
+<h3><span *ngIf="!user">...</span><span *ngIf="user">{{user.username}}'s Documents</span></h3>
+<p> Click the add button to upload a file.</p>
 
 <ul class="cards container">
   <li *ngFor="let item of documents">

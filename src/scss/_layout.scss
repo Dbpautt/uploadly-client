@@ -3,12 +3,7 @@ body {
   //----try out this new background-color----//
   background-color: #D2DBDD;
 }
-a{
-  &:hover{
-    cursor: pointer;
-    border-bottom: 3px solid #FF5959;
-  }
-}
+
 html, body { 
   height: 100%;
 }

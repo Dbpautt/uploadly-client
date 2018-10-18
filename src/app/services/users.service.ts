@@ -20,7 +20,15 @@ export class UsersService {
       .toPromise();
   }
 
-  profile(id): Promise<any> {
+  getOne(id): Promise<any> {
+    const options = {
+      withCredentials: true
+    };
+    return this.httpClient.get(`${this.baseUrl}/users/${id}`, options)
+      .toPromise();
+  }
+  
+  profile(): Promise<any> {
     const options = {
       withCredentials: true
     };
