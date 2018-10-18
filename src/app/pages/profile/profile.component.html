@@ -1,6 +1,6 @@
 <h3 *ngIf="user">Hello, {{user.username}}</h3>
 
-<ul class="cards container"  *ngIf="documents">
+<ul class="cards container"  *ngIf="documents.length">
   <li *ngFor="let item of documents">
       <a [routerLink]="['/profile/document', item._id]">
         <app-documents [documents]="item"></app-documents>
