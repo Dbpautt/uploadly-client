@@ -1,3 +1,7 @@
 .pdf-viewer {
-  
+
+}
+:host ::ng-deep .ng2-pdf-viewer-container {
+  width: 100% !important;
+  max-width:414px!important;
 }

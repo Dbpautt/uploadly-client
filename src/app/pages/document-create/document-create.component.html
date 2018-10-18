@@ -1,56 +1,58 @@
-<h1> Add a document</h1>
+<div id="create-document-page">
+  <h1> Add a document</h1>
 
-<form class="container" (ngSubmit)="submitForm(form)" #form="ngForm" novalidate>
-  <div class="field">
-    <label>Name</label>
-    <input type="text" name="name" [(ngModel)]="name" #nameField="ngModel" required minlength="3" [disabled]="processing"/>
-    <div *ngIf="feedbackEnabled && nameField.errors">
-      <p *ngIf="nameField.errors.required" class="validation">Please name your file</p>
-      <p *ngIf="nameField.errors.minlength" class="validation">The name of your file is too short</p>
-    </div>  
-  </div>
-  
-  <div class="field">
-    <label>Type</label>
-    <select name="type" name="type" [(ngModel)]="type" #typeField="ngModel" required>
-      <option value="">-- Select type --</option>
-      <option value="Contract">Contract</option>
-      <option value="Presentation">Presentation</option>
-      <option value="Proposal">Proposal</option>
-      <option value="Survey">Survey</option>
-      <option value="Other">Other</option>
-    </select>
-    <div *ngIf="feedbackEnabled && typeField.errors">
-      <p *ngIf="typeField.errors.required" class="validation">Please select the type</p>
-    </div>  
-  </div>
-  
-  <div class="field">
-    <label>Description</label>
-    <input type="text" name="description" [(ngModel)]="description" #descriptionField="ngModel" required minlength="3" [disabled]="processing"/>
-    <div *ngIf="feedbackEnabled && descriptionField.errors">
-      <p *ngIf="descriptionField.errors.required" class="validation">Please type a description</p>
-    </div>  
-  </div>
-  
-  <div class="field">
-    <label for="">Select your file here</label>
-    <input type="file" name="document" ng2FileSelect [uploader]="uploader" [disabled]="processing" />
-    <div *ngIf="feedbackEnabled && fileRequiredMsg">
-      <p class="validation">Please select a file</p>
-    </div>  
+  <form class="container" (ngSubmit)="submitForm(form)" #form="ngForm" novalidate>
+    <div class="field">
+      <label>Name</label>
+      <input type="text" name="name" [(ngModel)]="name" #nameField="ngModel" required minlength="3" [disabled]="processing"/>
+      <div *ngIf="feedbackEnabled && nameField.errors">
+        <p *ngIf="nameField.errors.required" class="validation">Please name your file</p>
+        <p *ngIf="nameField.errors.minlength" class="validation">The name of your file is too short</p>
+      </div>  
+    </div>
+    
+    <div class="field">
+      <label>Type</label>
+      <select name="type" name="type" [(ngModel)]="type" #typeField="ngModel" required>
+        <option value="">-- Select type --</option>
+        <option value="Contract">Contract</option>
+        <option value="Presentation">Presentation</option>
+        <option value="Proposal">Proposal</option>
+        <option value="Survey">Survey</option>
+        <option value="Other">Other</option>
+      </select>
+      <div *ngIf="feedbackEnabled && typeField.errors">
+        <p *ngIf="typeField.errors.required" class="validation">Please select the type</p>
+      </div>  
+    </div>
+    
+    <div class="field">
+      <label>Description</label>
+      <input type="text" name="description" [(ngModel)]="description" #descriptionField="ngModel" required minlength="3" [disabled]="processing"/>
+      <div *ngIf="feedbackEnabled && descriptionField.errors">
+        <p *ngIf="descriptionField.errors.required" class="validation">Please type a description</p>
+      </div>  
+    </div>
+    
+    <div class="field">
+      <label for="">Select your file here</label>
+      <input type="file" name="document" ng2FileSelect [uploader]="uploader" [disabled]="processing" />
+      <div *ngIf="feedbackEnabled && fileRequiredMsg">
+        <p class="validation">Please select a file</p>
+      </div>  
+    </div>
+
+    <div class="field submit">
+      <button type="submit" name="document" [disabled]="processing">Add the document</button>
+    </div>
+  </form>
+
+  <div *ngIf="uploadSuccess">
+    <p>Upload Succesfull <span [routerLink]="['/user', id]">Click Here!</span> to see your users profile</p>
   </div>
 
-  <div class="field submit">
-    <button type="submit" name="document" [disabled]="processing">Add the document</button>
+  <div class="validation" *ngIf="uploadError">
+    There was an error, please <a (click)="submitForm(form)">try again</a>
   </div>
-</form>
 
-<div *ngIf="uploadSuccess">
-  <p>Upload Succesfull <span [routerLink]="['/user', id]">Click Here!</span> to see your users profile</p>
 </div>
-
-<div class="validation" *ngIf="uploadError">
-  There was an error, please <a (click)="submitForm(form)">try again</a>
-</div>
-

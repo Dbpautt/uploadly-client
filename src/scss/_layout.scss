@@ -3,7 +3,12 @@ body {
   //----try out this new background-color----//
   background-color: #D2DBDD;
 }
-
+a{
+  &:hover{
+    cursor: pointer;
+    border-bottom: 3px solid #FF5959;
+  }
+}
 html, body { 
   height: 100%;
 }
@@ -20,7 +25,19 @@ html, body {
   z-index: 1;
   
   a {
-    padding: 10px;
+    padding: 7px;
+    margin-right: 10px;
+  }
+  .button-logout{
+    border: 1px solid #FF5959;
+    padding:10px;
+    font-size: 11px;
+    transition: all .2s;
+    &:hover{
+      cursor: pointer;
+      background: #FF5959;
+      color: #fff;
+    }
   }
   img {
     max-width: 100px;
