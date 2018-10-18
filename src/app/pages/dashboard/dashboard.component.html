@@ -1,5 +1,5 @@
 
-<div class="lonely-state container" *ngIf="users && !users.length">
+<div class="lonely-state container" *ngIf="users && !users.length && user">
   <img class="cat" src="../../../assets/images/cat-state.png" alt="">
   <h3>Hello {{user.username}}, this is your space! </h3>
   <p>No users have been created yet, but you will be able to share your files in no time.</p>
@@ -9,7 +9,7 @@
   </a>
 </div>
 
-<div class="created-state" *ngIf="users && users.length">
+<div class="created-state" *ngIf="users && users.length && user">
   <h3>{{user.username}}, these are the users you have created: </h3>
   <p>Click on the user to upload a pdf for them.</p>
   <ul class="users-list container">
